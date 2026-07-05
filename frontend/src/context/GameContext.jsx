@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   createContext,
   useCallback,
@@ -8,9 +7,6 @@ import {
   useRef,
   useState,
 } from 'react';
-=======
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
->>>>>>> 2544e17cf721543ad040d801d07f7d6f9693884c
 import toast from 'react-hot-toast';
 import { useSocket } from './SocketContext.jsx';
 import { EVENTS } from '../constants/events.js';
@@ -35,14 +31,10 @@ export function GameProvider({ children }) {
 
   const pushMessage = useCallback((msg) => {
     messageIdRef.current += 1;
-<<<<<<< HEAD
     setState((s) => ({
       ...s,
       messages: [...s.messages.slice(-199), { ...msg, id: messageIdRef.current }],
     }));
-=======
-    setState((s) => ({ ...s, messages: [...s.messages.slice(-199), { ...msg, id: messageIdRef.current }] }));
->>>>>>> 2544e17cf721543ad040d801d07f7d6f9693884c
   }, []);
 
   useEffect(() => {
@@ -53,7 +45,6 @@ export function GameProvider({ children }) {
     const onPlayerLeft = () => toast(`A player left the room`, { icon: '👋' });
 
     const onGameStarted = () => {
-<<<<<<< HEAD
       setState((s) => ({
         ...s,
         messages: [],
@@ -74,17 +65,6 @@ export function GameProvider({ children }) {
     const onRoundStarted = () => setState((s) => ({ ...s, wordOptions: null, roundResult: null }));
     const onTimerUpdate = ({ phase, secondsLeft }) =>
       setState((s) => ({ ...s, timerPhase: phase, secondsLeft }));
-=======
-      setState((s) => ({ ...s, messages: [], wordOptions: null, roundResult: null, gameOverResult: null }));
-      toast.success('Game started!');
-    };
-    const onDrawerChanged = ({ drawerName, round, totalRounds }) => {
-      pushMessage({ system: true, text: `Round ${round}/${totalRounds} — ${drawerName} is drawing now` });
-    };
-    const onWordSelected = ({ options }) => setState((s) => ({ ...s, wordOptions: options }));
-    const onRoundStarted = () => setState((s) => ({ ...s, wordOptions: null, roundResult: null }));
-    const onTimerUpdate = ({ phase, secondsLeft }) => setState((s) => ({ ...s, timerPhase: phase, secondsLeft }));
->>>>>>> 2544e17cf721543ad040d801d07f7d6f9693884c
     const onHintUpdate = ({ revealedHints }) =>
       setState((s) => (s.room ? { ...s, room: { ...s.room, revealedHints } } : s));
     const onGuessResult = (result) => {
@@ -165,13 +145,9 @@ export function GameProvider({ children }) {
       undo: () => socket.emit(EVENTS.UNDO),
       clearCanvas: () => socket.emit(EVENTS.CLEAR_CANVAS),
       listPublicRooms: () =>
-<<<<<<< HEAD
         new Promise((resolve) =>
           socket.emit(EVENTS.LIST_PUBLIC_ROOMS, {}, (ack) => resolve(ack?.data || []))
         ),
-=======
-        new Promise((resolve) => socket.emit(EVENTS.LIST_PUBLIC_ROOMS, {}, (ack) => resolve(ack?.data || []))),
->>>>>>> 2544e17cf721543ad040d801d07f7d6f9693884c
       resetGameState: () => setState(initialState),
     }),
     [socket]
