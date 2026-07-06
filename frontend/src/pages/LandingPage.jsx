@@ -39,7 +39,11 @@ export default function LandingPage() {
     e.preventDefault();
     if (!name.trim()) return toast.error('Enter a name first');
     setSubmitting(true);
-    const ack = await createRoom({ hostName: name.trim(), isPrivate, settings: { ...settings, avatar } });
+    const ack = await createRoom({
+      hostName: name.trim(),
+      isPrivate,
+      settings: { ...settings, avatar },
+    });
     setSubmitting(false);
     if (!ack?.success) return toast.error(ack?.message || 'Failed to create room');
     saveSession({ roomId: ack.roomId, playerId: ack.playerId, name: name.trim() });
@@ -48,7 +52,11 @@ export default function LandingPage() {
 
   async function handleJoin(e, codeOverride) {
     e?.preventDefault?.();
-    const code = (codeOverride || roomCode).trim().toUpperCase();
+    const raw = (codeOverride || roomCode).trim();
+    // If a full invite link was pasted, extract just the room code from the end of the URL
+    const code = raw.includes('/room/')
+      ? raw.split('/room/').pop().toUpperCase()
+      : raw.toUpperCase();
     if (!name.trim()) return toast.error('Enter a name first');
     if (!code) return toast.error('Enter a room code');
     setSubmitting(true);
@@ -77,7 +85,9 @@ export default function LandingPage() {
           </div>
 
           <div>
-            <label className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">Your name</label>
+            <label className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
+              Your name
+            </label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -88,7 +98,9 @@ export default function LandingPage() {
           </div>
 
           <div>
-            <label className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">Avatar</label>
+            <label className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
+              Avatar
+            </label>
             <div className="flex flex-wrap gap-2 mt-1">
               {AVATARS.map((a) => (
                 <button
@@ -123,18 +135,40 @@ export default function LandingPage() {
           {mode === 'create' ? (
             <form onSubmit={handleCreate} className="flex flex-col gap-3">
               <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={isPrivate} onChange={(e) => setIsPrivate(e.target.checked)} />
+                <input
+                  type="checkbox"
+                  checked={isPrivate}
+                  onChange={(e) => setIsPrivate(e.target.checked)}
+                />
                 Private room (invite link only)
               </label>
               <div className="grid grid-cols-3 gap-2 text-sm">
-                <SettingField label="Players" value={settings.maxPlayers} min={2} max={20}
-                  onChange={(v) => setSettings((s) => ({ ...s, maxPlayers: v }))} />
-                <SettingField label="Rounds" value={settings.rounds} min={2} max={10}
-                  onChange={(v) => setSettings((s) => ({ ...s, rounds: v }))} />
-                <SettingField label="Draw time (s)" value={settings.drawTimeSeconds} min={15} max={240}
-                  onChange={(v) => setSettings((s) => ({ ...s, drawTimeSeconds: v }))} />
+                <SettingField
+                  label="Players"
+                  value={settings.maxPlayers}
+                  min={2}
+                  max={20}
+                  onChange={(v) => setSettings((s) => ({ ...s, maxPlayers: v }))}
+                />
+                <SettingField
+                  label="Rounds"
+                  value={settings.rounds}
+                  min={2}
+                  max={10}
+                  onChange={(v) => setSettings((s) => ({ ...s, rounds: v }))}
+                />
+                <SettingField
+                  label="Draw time (s)"
+                  value={settings.drawTimeSeconds}
+                  min={15}
+                  max={240}
+                  onChange={(v) => setSettings((s) => ({ ...s, drawTimeSeconds: v }))}
+                />
               </div>
-              <button disabled={submitting} className="btn-primary rounded-lg py-2.5 font-semibold disabled:opacity-50">
+              <button
+                disabled={submitting}
+                className="btn-primary rounded-lg py-2.5 font-semibold disabled:opacity-50"
+              >
                 {submitting ? 'Creating...' : 'Create Room'}
               </button>
             </form>
@@ -142,12 +176,15 @@ export default function LandingPage() {
             <form onSubmit={handleJoin} className="flex flex-col gap-3">
               <input
                 value={roomCode}
-                onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-                placeholder="Room code e.g. K7F3QZ"
-                maxLength={8}
+                onChange={(e) => setRoomCode(e.target.value)}
+                placeholder="Room code or paste invite link"
+                maxLength={200}
                 className="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg px-3 py-2 outline-none focus:border-[var(--color-primary)] tracking-widest font-mono"
               />
-              <button disabled={submitting} className="btn-primary rounded-lg py-2.5 font-semibold disabled:opacity-50">
+              <button
+                disabled={submitting}
+                className="btn-primary rounded-lg py-2.5 font-semibold disabled:opacity-50"
+              >
                 {submitting ? 'Joining...' : 'Join Room'}
               </button>
             </form>
@@ -171,7 +208,10 @@ export default function LandingPage() {
           ) : (
             <div className="flex flex-col gap-2 overflow-y-auto max-h-96">
               {publicRooms.map((r) => (
-                <div key={r.roomId} className="flex items-center justify-between bg-[var(--color-bg)] rounded-lg px-3 py-2">
+                <div
+                  key={r.roomId}
+                  className="flex items-center justify-between bg-[var(--color-bg)] rounded-lg px-3 py-2"
+                >
                   <div>
                     <p className="font-mono font-semibold">{r.roomId}</p>
                     <p className="text-xs text-[var(--color-text-muted)]">
