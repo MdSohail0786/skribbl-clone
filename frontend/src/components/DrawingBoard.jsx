@@ -75,6 +75,7 @@ export default function DrawingBoard({ isDrawer }) {
         <canvas
           ref={canvasRef}
           className={`w-full h-full block ${isDrawer ? 'cursor-crosshair' : 'cursor-not-allowed'}`}
+          style={{ touchAction: 'none' }}
           onMouseDown={handlePointerDown}
           onMouseMove={handlePointerMove}
           onMouseUp={handlePointerUp}
