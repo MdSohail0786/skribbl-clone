@@ -5,7 +5,7 @@ frontend and Node.js + Express + Socket.IO on the backend. Players create or
 join rooms, take turns drawing a chosen word while everyone else guesses in
 real time, and compete for points across multiple rounds.
 
----
+----
 
 ## 1. Quick Start (Local Development)
 
