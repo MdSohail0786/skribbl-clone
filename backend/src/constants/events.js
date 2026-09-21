@@ -2,6 +2,7 @@
  * Central registry of every Socket.IO event name. Importing this
  * instead of hardcoding strings prevents typo bugs across the client
  * and server, which is the #1 source of "silent" realtime bugs.
+ 
  */
 module.exports = {
   // Client -> Server
