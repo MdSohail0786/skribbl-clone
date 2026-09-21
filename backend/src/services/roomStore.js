@@ -1,6 +1,7 @@
 /**
  * RoomStore holds ALL live game state in memory, keyed by roomId.
  *
+ 
  * Why in-memory and not MongoDB:
  * Drawing strokes and timers fire many times per second per room.
  * Round-tripping that through a database would add latency and load
