@@ -4,6 +4,7 @@ const roomService = require('../services/roomService');
 /**
  * REST endpoints exist for: discovering public rooms, checking a room
  * exists before showing a "join" form, and fetching room metadata for
+ 
  * share links. The actual join handshake (socket attach) happens over
  * Socket.IO so the player is registered the instant they're connected.
  */
