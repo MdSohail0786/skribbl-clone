@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 /**
  * This model stores a lightweight historical record of a room
  * (used for stats / audit / "GET /rooms" listing persistence across
+ 
  * restarts if Mongo is enabled). The authoritative LIVE game state
  * (current strokes, timers, sockets) is always in-memory — see
  * src/services/roomStore.js — for latency reasons.
