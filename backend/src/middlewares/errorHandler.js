@@ -1,6 +1,6 @@
 const env = require('../config/env');
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars 
 function notFoundHandler(req, res, next) {
   res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
 }
