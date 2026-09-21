@@ -39,7 +39,7 @@ export default function DrawingBoard({ isDrawer }) {
     const onCanvasUndo = () => {
       /* Simplification: full redraw-on-undo is out of scope for the
          72h MVP; we just clear + let the drawer keep going. A production
-         follow-up would replay the stroke history minus the last path. */
+         follow-up would replay the stroke history minus the last path.  */
     };
 
     socket.on(EVENTS.CANVAS_UPDATE, onCanvasUpdate);
