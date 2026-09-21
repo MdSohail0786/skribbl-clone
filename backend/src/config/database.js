@@ -37,3 +37,4 @@ function isDbConnected() {
 }
 
 module.exports = { connectDatabase, isDbConnected };
+
