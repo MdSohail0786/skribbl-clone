@@ -1,5 +1,5 @@
 export const EVENTS = {
-  // Client -> Server
+  // Client -> Server 
   CREATE_ROOM: 'create_room',
   JOIN_ROOM: 'join_room',
   LEAVE_ROOM: 'leave_room',
