@@ -59,7 +59,7 @@ function registerChatManager(io, socket, gameService) {
       return;
     }
 
-    // Wrong or close guess: only the guesser sees their own attempt + hint,
+    // Wrong or close guess: only the guesser sees their own attempt + hint, 
     // everyone else just doesn't see the word (prevents spoiling it).
     socket.emit(events.GUESS_RESULT, { correct: false, close: result.close });
     io.to(room.roomId).emit(events.CHAT_MESSAGE, {
