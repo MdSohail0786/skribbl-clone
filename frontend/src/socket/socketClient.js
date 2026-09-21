@@ -26,3 +26,4 @@ export function connectSocket() {
 export function disconnectSocket() {
   if (socket?.connected) socket.disconnect();
 }
+
