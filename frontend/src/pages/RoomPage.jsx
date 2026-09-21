@@ -186,3 +186,4 @@ function LobbyView({ room, isHost, me, onToggleReady, onStart }) {
     </div>
   );
 }
+
