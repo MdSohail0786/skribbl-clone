@@ -1,6 +1,6 @@
 const STORAGE_KEY = 'doodle_duel_session';
 
-/** Persists { roomId, playerId, name } across page refreshes so a
+/** Persists { roomId, playerId, name } across page refreshes so a 
  * dropped connection or accidental reload doesn't lose the player's seat. */
 export function saveSession(session) {
   try {
