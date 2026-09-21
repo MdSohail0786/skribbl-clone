@@ -7,6 +7,7 @@ const THROTTLE_MS = 30; // ~33 events/sec — smooth but bandwidth-friendly
  * stroke playback, undo history, and pointer-event throttling. Keeping
  * this in a hook (rather than inline in the component) makes the
  * drawing engine reusable and testable independent of layout/UI.
+ 
  */
 export function useDrawingCanvas({ isDrawer, onLocalStroke }) {
   const canvasRef = useRef(null);
