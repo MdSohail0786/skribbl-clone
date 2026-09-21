@@ -5,6 +5,7 @@ const events = require('../constants/events');
  * Relays drawing strokes to every other player in the room. Only the
  * current drawer's events are accepted, which prevents a malicious or
  * buggy client from painting on everyone else's canvas.
+ 
  */
 function registerCanvasManager(io, socket) {
   function isCurrentDrawer(room, playerId) {
