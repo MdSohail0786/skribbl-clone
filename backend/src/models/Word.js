@@ -12,3 +12,4 @@ const wordSchema = new mongoose.Schema(
 wordSchema.index({ word: 1, category: 1 }, { unique: true });
 
 module.exports = mongoose.models.Word || mongoose.model('Word', wordSchema);
+
