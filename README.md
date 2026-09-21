@@ -272,3 +272,4 @@ Socket.IO Client, TailwindCSS v4, React Hot Toast, Framer Motion.
 
 **Backend:** Node.js, Express, Socket.IO, MongoDB Atlas + Mongoose, Helmet,
 Morgan, Compression, express-validator, express-rate-limit, UUID, CORS.
+# Refactored Architecture - September 2026
