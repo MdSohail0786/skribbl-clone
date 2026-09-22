@@ -250,3 +250,4 @@ function SettingField({ label, value, onChange, min, max }) {
     </div>
   );
 }
+
