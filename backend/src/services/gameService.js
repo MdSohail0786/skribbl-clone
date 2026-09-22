@@ -7,7 +7,7 @@ const { normalizeWord, isCloseGuess } = require('../utils/sanitize');
 /**
  * GameService owns the turn-based lifecycle: picking the next drawer,
  * offering word choices, running the round timer, revealing hints,
- * scoring guesses, and moving to the next round or ending the game.
+ * scoring guesses, and moving to the next round or ending the game. 
  *
  * It is instantiated once per Socket.IO server (see socket/index.js)
  * so it always has `io` available to broadcast to rooms.
