@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console  */
 require('dotenv').config();
 const mongoose = require('mongoose');
 const env = require('../config/env');
