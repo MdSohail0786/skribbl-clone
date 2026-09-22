@@ -59,3 +59,4 @@ export function GameOverOverlay({ result, onPlayAgain }) {
     </AnimatePresence>
   );
 }
+
