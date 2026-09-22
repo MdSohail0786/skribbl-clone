@@ -33,3 +33,4 @@ export default function WordChoiceModal({ options, onSelect }) {
     </AnimatePresence>
   );
 }
+
