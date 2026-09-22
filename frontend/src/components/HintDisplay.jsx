@@ -15,3 +15,4 @@ export default function HintDisplay({ wordLength, revealedHints = [] }) {
     </div>
   );
 }
+
