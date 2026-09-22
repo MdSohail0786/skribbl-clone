@@ -11,3 +11,4 @@ router.get('/:id', roomIdParamRule, roomController.getRoomById);
 router.delete('/:id', roomIdParamRule, roomController.deleteRoom);
 
 module.exports = router;
+
