@@ -31,3 +31,4 @@ export function useSocket() {
   if (!ctx) throw new Error('useSocket must be used within SocketProvider');
   return ctx;
 }
+
