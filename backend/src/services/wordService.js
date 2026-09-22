@@ -23,7 +23,7 @@ function sampleUnique(pool, count) {
 }
 
 /**
- * Returns `count` random word options for the drawer to choose from.
+ * Returns `count` random word options for the drawer to choose from. 
  * Falls back to the static word bank if MongoDB isn't connected,
  * so the game is always playable even before Atlas is configured.
  */
