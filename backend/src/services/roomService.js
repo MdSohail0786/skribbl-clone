@@ -66,3 +66,4 @@ function canJoin(room) {
 }
 
 module.exports = { buildSettings, createRoom, canJoin };
+
