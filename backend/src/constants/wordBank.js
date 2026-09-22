@@ -1,5 +1,5 @@
 /**
- * Fallback word bank used when MongoDB is not connected, and as the
+ * Fallback word bank used when MongoDB is not connected, and as the 
  * seed data for `npm run seed`. Categories keep the game extensible —
  * new categories can be added here or via the Word collection.
  */
