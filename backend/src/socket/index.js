@@ -7,7 +7,7 @@ const { registerGameManager } = require('./gameManager');
 const events = require('../constants/events');
 
 /**
- * Wires up all socket namespaces/managers onto a single Socket.IO
+ * Wires up all socket namespaces/managers onto a single Socket.IO 
  * server instance. Each manager owns one concern (rooms, canvas,
  * chat/guessing, game/word-selection) which keeps handlers small and
  * makes it obvious where to add new realtime features.
