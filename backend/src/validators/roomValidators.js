@@ -36,3 +36,4 @@ const roomIdParamRule = [
 ];
 
 module.exports = { createRoomRules, joinRoomRules, roomIdParamRule };
+
