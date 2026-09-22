@@ -24,7 +24,7 @@ async function bootstrap() {
   initSocket(io);
 
   server.listen(env.PORT, () => {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console 
     console.log(`[server] Listening on port ${env.PORT} (${env.NODE_ENV})`);
     // eslint-disable-next-line no-console
     console.log(`[server] Allowed client origins: ${env.CLIENT_ORIGIN.join(', ')}`);
