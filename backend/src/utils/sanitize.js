@@ -1,4 +1,4 @@
-/** Strips characters that have no place in a chat/guess/name payload. */
+/** Strips characters that have no place in a chat/guess/name payload.  */
 function sanitizeText(input = '', maxLength = 200) {
   return String(input)
     .replace(/<[^>]*>/g, '') // strip any HTML tags (basic XSS guard)
