@@ -3,7 +3,7 @@ module.exports = {
   MAX_ROOM_SIZE: 20,
   MIN_ROOM_SIZE: 2,
   WORD_CHOICES: 5,
-  ROUND_END_DELAY_MS: 5000, // pause showing the word before next round
+  ROUND_END_DELAY_MS: 5000, // pause showing the word before next round 
   WORD_REVEAL_TIME_MS: 15000, // countdown for drawer to pick a word
   HINT_INTERVALS: 3, // number of letter reveals during a round
   BASE_GUESS_POINTS: 100,
