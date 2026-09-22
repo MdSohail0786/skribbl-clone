@@ -3,7 +3,7 @@ require('dotenv').config();
 /**
  * Centralised, validated environment configuration.
  * Every other module should read config from here rather than
- * touching process.env directly, so defaults live in exactly one place.
+ * touching process.env directly, so defaults live in exactly one place. 
  */
 const env = {
   PORT: parseInt(process.env.PORT, 10) || 5000,
