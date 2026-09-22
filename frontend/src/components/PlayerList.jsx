@@ -36,3 +36,4 @@ export default function PlayerList({ players = [], hostId, currentPlayerId }) {
     </div>
   );
 }
+
