@@ -57,3 +57,4 @@ export default function ChatBox({ messages, onSend, disabled, placeholder }) {
     </div>
   );
 }
+
